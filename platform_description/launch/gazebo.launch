@@ -1,0 +1,20 @@
+<launch>
+	<arg name="paused" default="true"/>
+	<arg name="headless" default="false"/>
+	<arg name="use_sim_time" default="true"/>
+	<arg name="table" default="false"/>
+	<arg name="bhand" default="false"/>
+        <arg name="robot" default="wam"/>
+        <arg name="platform" default="true"/>
+
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="paused" value="$(arg paused)"/>
+		<arg name="headless" value="$(arg headless)"/>
+		<arg name="use_sim_time" value="$(arg use_sim_time)"/>
+		<arg name="world_name" value="worlds/empty_sky.world" />
+	</include>
+
+	<include file="$(find platform_description)/launch/platform_$(arg robot).launch" />
+
+	<node name="platform_spawner" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model platform" respawn="false" output="screen" />
+</launch>

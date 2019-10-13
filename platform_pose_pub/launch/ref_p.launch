@@ -1,0 +1,5 @@
+<launch>
+    <node name="ref_p" pkg="platform_pose_pub"
+        type="platform_pose_pub" respawn="false" output="screen"
+    />
+</launch>

@@ -1,0 +1,33 @@
+<launch>
+	<arg name="paused" default="true"/>
+	<arg name="headless" default="false"/>
+	<arg name="use_sim_time" default="true"/>
+	<arg name="table" default="false"/>
+        <arg name="platform" default="true"/>
+	<arg name="bhand" default="false"/>
+        <arg name="robot" default="wam"/>
+
+	<arg name="controller" default="computed_torque_controller"/>
+	<arg name="config" default="$(find platform_bringup)/config/platform.yaml"/>
+	<arg name="configc" default="$(find wam_bringup)/config/$(arg controller).yaml"/>
+	
+	<rosparam file="$(arg config)" command="load"/>
+	<rosparam file="$(arg configc)" command="load"/>
+
+	<remap from="$(arg controller)/command" to="controller/command" />
+
+        <!--TODO make this be robot independent-->
+	<include file="$(find platform_description)/launch/gazebo.launch" >
+		<arg name="paused" value="$(arg paused)"/>
+		<arg name="headless" value="$(arg headless)"/>
+		<arg name="use_sim_time" value="$(arg use_sim_time)"/>
+                <arg name="table" value="false"/>
+                <arg name="platform" value="true"/>
+		<arg name="bhand" value="$(arg bhand)"/>
+                <arg name="robot" value="$(arg robot)"/>
+	</include>
+
+        <node name="controller_spawner" pkg="controller_manager" type="spawner"
+              respawn="false" output="screen"
+               args="$(arg controller) pitch_controller roll_controller joint_state_controller" />
+</launch>

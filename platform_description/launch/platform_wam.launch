@@ -1,0 +1,6 @@
+<launch>
+
+  <arg name="robot" default="wam"/>
+  <param name="robot_description" command="$(find xacro)/xacro '$(find platform_description)/xacro/$(arg robot)_platform.urdf.xacro'" />
+
+</launch>
