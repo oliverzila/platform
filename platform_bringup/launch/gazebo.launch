@@ -9,7 +9,7 @@
 
 	<arg name="controller" default="computed_torque_controller"/>
 	<arg name="config" default="$(find platform_bringup)/config/platform.yaml"/>
-	<arg name="configc" default="$(find wam_bringup)/config/$(arg controller).yaml"/>
+	<arg name="configc" default="$(find platform_bringup)/config/$(arg controller).yaml"/>
 	
 	<rosparam file="$(arg config)" command="load"/>
 	<rosparam file="$(arg configc)" command="load"/>
