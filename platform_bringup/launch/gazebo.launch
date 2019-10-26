@@ -3,9 +3,9 @@
 	<arg name="headless" default="false"/>
 	<arg name="use_sim_time" default="true"/>
 	<arg name="table" default="false"/>
-        <arg name="platform" default="true"/>
+    <arg name="platform" default="true"/>
 	<arg name="bhand" default="false"/>
-        <arg name="robot" default="wam"/>
+    <arg name="robot" default="wam"/>
 
 	<arg name="controller" default="computed_torque_controller"/>
 	<arg name="config" default="$(find platform_bringup)/config/platform.yaml"/>
@@ -15,6 +15,7 @@
 	<rosparam file="$(arg configc)" command="load"/>
 
 	<remap from="$(arg controller)/command" to="controller/command" />
+	<remap from="$(arg controller)/imu/data" to="imu/data" />
 
         <!--TODO make this be robot independent-->
 	<include file="$(find platform_description)/launch/gazebo.launch" >
