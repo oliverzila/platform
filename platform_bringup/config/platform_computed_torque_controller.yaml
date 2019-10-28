@@ -29,5 +29,6 @@ platform_computed_torque_controller:
       0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 10.0]
   gravity: {x: 0.0, y: 0.0, z: -9.8}
   chain: {root: "wam_origin", tip: "wam_tool_plate"}
+  platform_chain: {root: "p0_link", tip: "platform_top_link"}
   priority: 99
 
