@@ -1,0 +1,8 @@
+<launch>
+        <arg name="use_gui" default="true"/>
+        <include file="$(find platform_description)/launch/platform_wam.launch" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="platform_origin_publisher" args="0 0 0 0 0 0 1 map world" />
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" args="_use_gui:=$(arg use_gui)" />
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find platform_description)/rviz/display.rviz" required="true" />
+</launch>
