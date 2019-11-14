@@ -29,10 +29,6 @@
   </link>
   <gazebo reference="p0_link">
     <material>Gazebo/Yellow</material>
-    <mu1>1000.0</mu1>
-    <mu2>1000.0</mu2>
-    <kp>10000000.0</kp>
-    <kd>1.0</kd>
     <selfCollide>true</selfCollide>
   </gazebo>
   <!-- P1 -->
@@ -42,7 +38,7 @@
       <origin xyz="0.0 0.0 0.0"/>
       <inertia ixx="640208333.333333" ixy="0" ixz="0" iyy="640208333.333333" iyz="0" izz="20000000"/>
     </inertial>
-    <!-- visual>
+    <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
       <geometry>
         <cylinder radius="${leg_radius}" length="0.0" />
@@ -56,14 +52,10 @@
       <geometry>
         <cylinder radius="${leg_radius}" length="0.0" />
       </geometry>
-    </collision>-->
+    </collision>
   </link>
   <gazebo reference="p1_link">
     <material>Gazebo/Green</material>
-    <mu1>1000.0</mu1>
-    <mu2>1000.0</mu2>
-    <kp>10000000.0</kp>
-    <kd>1.0</kd>
     <selfCollide>true</selfCollide>
   </gazebo>
   <!-- p0_joint -->
@@ -110,10 +102,6 @@
   </link>
   <gazebo reference="platform_top_link">
     <material>Gazebo/Red</material>
-    <mu1>50.0</mu1>
-    <mu2>50.0</mu2>
-    <kp>1000000.0</kp>
-    <kd>1.0</kd>
     <selfCollide>true</selfCollide>
   </gazebo>
   <!-- p1_joint -->
