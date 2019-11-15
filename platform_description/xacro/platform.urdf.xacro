@@ -112,6 +112,10 @@
   </link>
   <gazebo reference="platform_top_link">
     <material>Gazebo/Red</material>
+    <mu1>50.0</mu1>
+    <mu2>50.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>1.0</kd>
     <selfCollide>true</selfCollide>
   </gazebo>
 
