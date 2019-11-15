@@ -18,7 +18,7 @@
 	<joint name="world_platform_joint" type="fixed">
 		<parent link="world"/>
 		<child link="p0_link" />
-		<origin xyz="${-platform_x} ${-platform_y} ${-platform_z}" rpy="0.0 0.0 0.0" />
+		<origin xyz="${-platform_x} ${-platform_y} ${platform_z}" rpy="0.0 0.0 0.0" />
 	</joint>
 
   

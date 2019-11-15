@@ -43,21 +43,6 @@
       <origin xyz="0.0 0.0 0.0"/>
       <inertia ixx="640208333.333333" ixy="0" ixz="0" iyy="640208333.333333" iyz="0" izz="20000000"/>
     </inertial>
-    <!-- visual>
-      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
-      <geometry>
-        <cylinder radius="${leg_radius}" length="0.0" />
-      </geometry>
-      <material name="Black">
-		<color rgba="0 0 0 1.0"/>
-      </material>
-    </visual> 
-    <collision>
-      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
-      <geometry>
-        <cylinder radius="${leg_radius}" length="0.0" />
-      </geometry>
-    </collision>-->
   </link>
   <gazebo reference="p1_link">
     <material>Gazebo/Green</material>
