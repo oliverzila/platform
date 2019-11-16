@@ -6,11 +6,11 @@
 
   <link name="p0_link">
     <inertial>
-      <mass value="800.0" />
+      <mass value="500.0" />
       <origin xyz="0.0 0.0 ${platform_height/4}" />
-      <inertia ixx="6.4021" ixy="0"  ixz="0"
-               iyy="6.4021" iyz="0"
-               izz="0.2" />
+      <inertia ixx="3.2010" ixy="0"  ixz="0"
+               iyy="3.2010" iyz="0"
+               izz="0.1" />
     </inertial> 
     <visual>
       <origin xyz="0.0 0.0 ${platform_height/4}" rpy="0 0 0" />
@@ -31,6 +31,10 @@
 
   <gazebo reference="p0_link">
     <material>Gazebo/Yellow</material>
+    <mu1>1000.0</mu1>
+    <mu2>1000.0</mu2>
+    <kp>10000000.0</kp>
+    <kd>1.0</kd>
     <selfCollide>true</selfCollide>
   </gazebo>
 
@@ -38,16 +42,20 @@
 
   <link name="p1_link">
     <inertial>
-      <mass value="100.0" />
-      <origin xyz="0.0 0.0 0.0" />
-      <inertia ixx="640208333.333333" ixy="0"  ixz="0"
-               iyy="640208333.333333" iyz="0"
-               izz="20000000" />
+      <mass value="500.0" />
+      <origin xyz="0.1 0.0 0.0" />
+      <inertia ixx="3.2010" ixy="0"  ixz="0"
+               iyy="3.2010" iyz="0"
+               izz="0.1" />
     </inertial> 
   </link>
 
   <gazebo reference="p1_link">
     <material>Gazebo/Green</material>
+    <mu1>1000.0</mu1>
+    <mu2>1000.0</mu2>
+    <kp>10000000.0</kp>
+    <kd>1.0</kd>
     <selfCollide>true</selfCollide>
   </gazebo>
 
@@ -57,7 +65,7 @@
     <parent link="p0_link" />
     <origin xyz="0.0 0.0 ${platform_z+platform_height/2}" rpy="0 0 0" />
     <child link="p1_link" />
-    <limit effort="1000.0" lower="-2.0" upper="2.0" velocity="1.5" />
+    <limit effort="100000.0" lower="-2.0" upper="2.0" velocity="1.5" />
     <axis xyz="0 1 0"/>
   </joint> 
 
@@ -77,11 +85,11 @@
  <!-- platform top -->
   <link name="platform_top_link">
     <inertial>
-      <mass value="1.0" />
+      <mass value="5.0" />
       <origin xyz="0.0 0.0 ${platform_top_thickness/2}" />
-      <inertia ixx="1" ixy="0"  ixz="0"
-               iyy="1" iyz="0"
-               izz="1" />
+      <inertia ixx="1.0" ixy="0"  ixz="0"
+               iyy="1.0" iyz="0"
+               izz="1.0" />
     </inertial> 
     <visual>
       <origin xyz="0.0 0.0 ${platform_top_thickness/2}" />
@@ -114,7 +122,7 @@
     <parent link="p1_link" />
     <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
     <child link="platform_top_link" />
-    <limit effort="1000.0" lower="-2.0" upper="2.0" velocity="1.5" />
+    <limit effort="100000.0" lower="-2.0" upper="2.0" velocity="1.5" />
     <axis xyz="1 0 0"/>
   </joint>
 
@@ -136,7 +144,9 @@
     <inertial>
       <mass value="0.01"/>
       <origin rpy="0.0 0.0 0.0" xyz="0 0 0"/>
-      <inertia ixx="0.0077083" ixy="0" ixz="0" iyy="0.0077083" iyz="0" izz="0.0077083"/>
+      <inertia ixx="0.00000077083" ixy="0" ixz="0" 
+               iyy="0.00000077083" iyz="0" 
+               izz="0.00000077083"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -159,7 +169,7 @@
   <!-- IMU joint -->
   <joint name="imu_joint" type="fixed">
     <axis xyz="1 0 0"/> <!-- 0 1 0 -->
-    <origin xyz="0 0 0.0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="platform_top_link"/>
     <child link="imu_link"/>
   </joint>
