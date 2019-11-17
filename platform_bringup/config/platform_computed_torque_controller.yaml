@@ -37,5 +37,6 @@ platform_computed_torque_controller:
   gravity: {x: 0.0, y: 0.0, z: -9.8}
   chain: {root: "wam_origin", tip: "wam_tool_plate"}
   platform_chain: {root: "p0_link", tip: "platform_top_link"}
+  imu_chain: {roll: 0.0, pitch: 0.0, yaw: 0.0}
   priority: 99
 
