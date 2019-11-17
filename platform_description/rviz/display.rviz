@@ -9,6 +9,10 @@ Panels:
         - /Grid1
         - /RobotModel1
         - /TF1
+        - /Axes1
+        - /Axes2
+        - /Axes3
+        - /Axes4
       Splitter Ratio: 0.5
     Tree Height: 722
   - Class: rviz/Selection
@@ -162,50 +166,50 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
         imu_link:
-          Value: true
+          Value: false
         map:
-          Value: true
+          Value: false
         p0_link:
-          Value: true
+          Value: false
         p1_link:
-          Value: true
+          Value: false
         platform_top_link:
-          Value: true
+          Value: false
         wam_link_0:
-          Value: true
+          Value: false
         wam_link_1:
-          Value: true
+          Value: false
         wam_link_2:
-          Value: true
+          Value: false
         wam_link_3:
-          Value: true
+          Value: false
         wam_link_3_virtual:
-          Value: true
+          Value: false
         wam_link_4:
-          Value: true
+          Value: false
         wam_link_4_virtual:
-          Value: true
+          Value: false
         wam_link_5:
-          Value: true
+          Value: false
         wam_link_6:
-          Value: true
+          Value: false
         wam_link_7:
-          Value: true
+          Value: false
         wam_link_base:
-          Value: true
+          Value: false
         wam_link_footprint:
-          Value: true
+          Value: false
         wam_origin:
-          Value: true
+          Value: false
         wam_tool_plate:
-          Value: true
+          Value: false
         world:
-          Value: true
+          Value: false
       Marker Scale: 0.5
       Name: TF
-      Show Arrows: true
+      Show Arrows: false
       Show Axes: true
       Show Names: true
       Tree:
@@ -233,6 +237,34 @@ Visualization Manager:
                     wam_link_footprint:
                       {}
       Update Interval: 0
+      Value: true
+    - Class: rviz/Axes
+      Enabled: true
+      Length: 0.10000000149011612
+      Name: Axes
+      Radius: 0.009999999776482582
+      Reference Frame: imu_link
+      Value: true
+    - Class: rviz/Axes
+      Enabled: true
+      Length: 0.20000000298023224
+      Name: Axes
+      Radius: 0.009999999776482582
+      Reference Frame: wam_origin
+      Value: true
+    - Class: rviz/Axes
+      Enabled: true
+      Length: 0.20000000298023224
+      Name: Axes
+      Radius: 0.009999999776482582
+      Reference Frame: world
+      Value: true
+    - Class: rviz/Axes
+      Enabled: true
+      Length: 0.20000000298023224
+      Name: Axes
+      Radius: 0.009999999776482582
+      Reference Frame: platform_top_link
       Value: true
   Enabled: true
   Global Options:
@@ -262,25 +294,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.367875099182129
+      Distance: 0.9450231790542603
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.8754053115844727
-        Y: 0.08087427169084549
-        Z: 0.8661239743232727
+        X: -0.05080687254667282
+        Y: 0.03327900543808937
+        Z: 0.06943253427743912
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3003973960876465
+      Pitch: 0.38039714097976685
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.5735819339752197
+      Yaw: 5.906777381896973
     Saved: ~
 Window Geometry:
   Displays:

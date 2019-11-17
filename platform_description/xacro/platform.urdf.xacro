@@ -169,7 +169,7 @@
   <!-- IMU joint -->
   <joint name="imu_joint" type="fixed">
     <axis xyz="1 0 0"/> <!-- 0 1 0 -->
-    <origin rpy="0 0 0" xyz="${wam_x+0.015} ${wam_y-0.02} ${platform_top_thickness+0.0025}"/>
+    <origin rpy="0 0 0" xyz="0.0 ${wam_y-0.02} ${platform_top_thickness+0.0025}"/>
     <parent link="platform_top_link"/>
     <child link="imu_link"/>
   </joint>
@@ -186,7 +186,7 @@
         <updateRateHZ>1000.0</updateRateHZ>
         <gaussianNoise>0.0</gaussianNoise>
         <xyzOffset>0 0 0</xyzOffset>
-        <rpyOffset>0 0 0</rpyOffset>
+        <rpyOffset>0 0 1.0472</rpyOffset>
         <frameName>imu_link</frameName>
       </plugin>
       <pose>0 0 0 0 0 0</pose>
