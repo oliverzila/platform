@@ -5,11 +5,16 @@
   <xacro:property name="platform_height" value="0.55" />
   <xacro:property name="platform_radius" value="0.3" />
   <xacro:property name="leg_radius" value="0.02" />
-  <xacro:property name="platform_x" value="0.98" />
+  <xacro:property name="platform_x" value="0.0" />
   <xacro:property name="platform_y" value="0.0" />
   <xacro:property name="platform_z" value="0.0" />
 
   <xacro:property name="platform_top_thickness" value="0.05"/>
+
+  <!-- Distances from wam_origin to platform_top_link (center of the platform) -->
+  <xacro:property name="wam_x" value="-0.22" />
+  <xacro:property name="wam_y" value="-0.14" />
+  <xacro:property name="wam_z" value="${platform_top_thickness}" />
 
   <xacro:property name="M_PI" value="3.1415926535897931" />
 
