@@ -169,7 +169,7 @@
   <!-- IMU joint -->
   <joint name="imu_joint" type="fixed">
     <axis xyz="1 0 0"/> <!-- 0 1 0 -->
-    <origin rpy="0 0 0" xyz="0.0 ${wam_y-0.02} ${platform_top_thickness+0.0025}"/>
+    <origin rpy="${M_PI/2} 0 ${M_PI/2}" xyz="${platform_top_thickness+0.0025} 0 ${wam_z-0.02}"/>
     <parent link="platform_top_link"/>
     <child link="imu_link"/>
   </joint>
