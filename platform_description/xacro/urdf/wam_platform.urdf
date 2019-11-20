@@ -9,11 +9,11 @@
   <link name="p0_link">
     <inertial>
       <mass value="500.0"/>
-      <origin xyz="0.0 0.0 0.1375"/>
+      <origin rpy="1.57079632679 1.57079632679 0" xyz="0 0.1375 0"/>
       <inertia ixx="3.2010" ixy="0" ixz="0" iyy="3.2010" iyz="0" izz="0.1"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0 0.0 0.1375"/>
+      <origin rpy="1.57079632679 1.57079632679 0" xyz="0 0.1375 0"/>
       <geometry>
         <cylinder length="0.275" radius="0.02"/>
       </geometry>
@@ -22,7 +22,7 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.1375"/>
+      <origin rpy="1.57079632679 1.57079632679 0" xyz="0 0.1375 0"/>
       <geometry>
         <cylinder length="0.275" radius="0.02"/>
       </geometry>
@@ -40,7 +40,7 @@
   <link name="p1_link">
     <inertial>
       <mass value="500.0"/>
-      <origin xyz="0.1 0.0 0.0"/>
+      <origin rpy="1.57079632679 0 1.57079632679" xyz="0 0 0"/>
       <inertia ixx="3.2010" ixy="0" ixz="0" iyy="3.2010" iyz="0" izz="0.1"/>
     </inertial>
   </link>
@@ -55,7 +55,7 @@
   <!-- p0_joint -->
   <joint name="p0_joint" type="revolute">
     <parent link="p0_link"/>
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.275"/>
+    <origin rpy="1.57079632679 0 1.57079632679" xyz="0 0.275 0"/>
     <child link="p1_link"/>
     <limit effort="100000.0" lower="-2.0" upper="2.0" velocity="1.5"/>
     <axis xyz="0 1 0"/>
@@ -75,11 +75,11 @@
   <link name="platform_top_link">
     <inertial>
       <mass value="5.0"/>
-      <origin xyz="0.0 0.0 0.025"/>
+      <origin rpy="1.57079632679 0 1.57079632679" xyz="0.025 0 0"/>
       <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="1.0"/>
     </inertial>
     <visual>
-      <origin xyz="0.0 0.0 0.025"/>
+      <origin rpy="1.57079632679 0 1.57079632679" xyz="0.025 0 0"/>
       <geometry>
         <cylinder length="0.05" radius="0.3"/>
       </geometry>
@@ -88,7 +88,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0.0 0.0 0.025"/>
+      <origin rpy="1.57079632679 0 1.57079632679" xyz="0.025 0 0"/>
       <geometry>
         <cylinder length="0.05" radius="0.3"/>
       </geometry>
@@ -108,7 +108,7 @@
     <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
     <child link="platform_top_link"/>
     <limit effort="100000.0" lower="-2.0" upper="2.0" velocity="1.5"/>
-    <axis xyz="1 0 0"/>
+    <axis xyz="0 0 1"/>
   </joint>
   <!-- p1_transmission -->
   <transmission name="p1_transmission">
@@ -148,7 +148,7 @@
   <joint name="imu_joint" type="fixed">
     <axis xyz="1 0 0"/>
     <!-- 0 1 0 -->
-    <origin rpy="0 0 0" xyz="0.0 -0.16 0.0525"/>
+    <origin rpy="0 0 0" xyz="0.0 -0.24 0.0525"/>
     <parent link="platform_top_link"/>
     <child link="imu_link"/>
   </joint>
@@ -177,7 +177,7 @@
   <joint name="world_platform_joint" type="fixed">
     <parent link="world"/>
     <child link="p0_link"/>
-    <origin rpy="0.0 0.0 0.0" xyz="-0.0 -0.0 0.0"/>
+    <origin rpy="1.57079632679 0 1.57079632679" xyz="-0.0 -0.0 0.0"/>
   </joint>
   <link name="wam_origin"/>
   <link name="wam_link_footprint"/>
@@ -684,7 +684,7 @@
   <joint name="platform_wam_joint" type="fixed">
     <parent link="platform_top_link"/>
     <child link="wam_origin"/>
-    <origin rpy="0.0 0.0 0.0" xyz="-0.22 -0.14 0.05"/>
+    <origin rpy="1.57079632679 0 1.57079632679" xyz="0.05 -0.22 -0.14"/>
   </joint>
 </robot>
 

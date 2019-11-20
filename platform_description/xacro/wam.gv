@@ -20,15 +20,15 @@ node [shape=box];
 "wam_tool_plate" [label="wam_tool_plate"];
 "wam_link_footprint" [label="wam_link_footprint"];
 node [shape=ellipse, color=blue, fontcolor=blue];
-"world" -> "world_platform_joint" [label="xyz: -0 -0 0 \nrpy: 0 -0 0"]
+"world" -> "world_platform_joint" [label="xyz: -0 -0 0 \nrpy: 1.5708 -5.55112e-17 1.5708"]
 "world_platform_joint" -> "p0_link"
-"p0_link" -> "p0_joint" [label="xyz: 0 0 0.275 \nrpy: 0 -0 0"]
+"p0_link" -> "p0_joint" [label="xyz: 0 0.275 0 \nrpy: 1.5708 -5.55112e-17 1.5708"]
 "p0_joint" -> "p1_link"
 "p1_link" -> "p1_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
 "p1_joint" -> "platform_top_link"
-"platform_top_link" -> "imu_joint" [label="xyz: 0 -0.16 0.0525 \nrpy: 0 -0 0"]
+"platform_top_link" -> "imu_joint" [label="xyz: 0 -0.24 0.0525 \nrpy: 0 -0 0"]
 "imu_joint" -> "imu_link"
-"platform_top_link" -> "platform_wam_joint" [label="xyz: -0.22 -0.14 0.05 \nrpy: 0 -0 0"]
+"platform_top_link" -> "platform_wam_joint" [label="xyz: 0.05 -0.22 -0.14 \nrpy: 1.5708 -5.55112e-17 1.5708"]
 "platform_wam_joint" -> "wam_origin"
 "wam_origin" -> "wam_link_base_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
 "wam_link_base_joint" -> "wam_link_base"

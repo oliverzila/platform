@@ -9,7 +9,7 @@
 	<joint name="world_platform_joint" type="fixed">
 		<parent link="world"/>
 		<child link="p0_link" />
-		<origin xyz="${-platform_x} ${-platform_y} ${platform_z}" rpy="0.0 0.0 0.0" />
+		<origin xyz="${-platform_x} ${-platform_y} ${platform_z}" rpy="${M_PI/2} 0 ${M_PI/2}" />
 	</joint>
 
   
@@ -18,7 +18,7 @@
 	<joint name="platform_wam_joint" type="fixed">
 		<parent link="platform_top_link"/>
 		<child link="wam_origin" />
-		<origin xyz="${wam_x} ${wam_y} ${wam_z}" rpy="0.0 0.0 0.0" />
+		<origin xyz="${wam_x} ${wam_y} ${wam_z}" rpy="${M_PI/2} 0 ${M_PI/2}" />
 	</joint>
 
 </robot>

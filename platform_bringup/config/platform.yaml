@@ -1,10 +1,10 @@
 roll_controller:
   type: position_controllers/JointPositionController
-  joint: p1_joint
+  joint: p0_joint
 #  pid: {p: 2310, i: 4640, d: 0.299}   
 
 pitch_controller:
   type: position_controllers/JointPositionController
-  joint: p0_joint
+  joint: p1_joint
 #  pid: {p: 339, i: 851, d: 0.351}
 
