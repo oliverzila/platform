@@ -15,7 +15,7 @@
     <visual>
       <origin rpy="1.57079632679 1.57079632679 0" xyz="0 0.025 0"/>
       <geometry>
-        <cylinder length="0.05" radius="0.1"/>
+        <cylinder length="0.05" radius="0.3"/>
       </geometry>
       <material name="Black">
         <color rgba="0 0 0 1.0"/>
@@ -24,7 +24,7 @@
     <collision>
       <origin rpy="1.57079632679 1.57079632679 0" xyz="0 0.025 0"/>
       <geometry>
-        <cylinder length="0.05" radius="0.1"/>
+        <cylinder length="0.05" radius="0.3"/>
       </geometry>
     </collision>
   </link>
@@ -52,8 +52,8 @@
     <kd>1.0</kd>
     <selfCollide>true</selfCollide>
   </gazebo>
-  <!-- p0_joint -->
-  <joint name="p0_joint" type="revolute">
+  <!-- platform_joint_1 -->
+  <joint name="platform_joint_1" type="revolute">
     <parent link="p0_link"/>
     <origin rpy="1.57079632679 0 1.57079632679" xyz="0 0.05 0"/>
     <child link="p1_link"/>
@@ -63,7 +63,7 @@
   <!-- p0_transmission -->
   <transmission name="p0_transmission">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="p0_joint">
+    <joint name="platform_joint_1">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="p0_motor">
@@ -102,8 +102,8 @@
     <kd>1.0</kd>
     <selfCollide>true</selfCollide>
   </gazebo>
-  <!-- p1_joint -->
-  <joint name="p1_joint" type="revolute">
+  <!-- platform_joint_2 -->
+  <joint name="platform_joint_2" type="revolute">
     <parent link="p1_link"/>
     <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
     <child link="segment_top"/>
@@ -150,7 +150,7 @@
   <!-- p1_transmission -->
   <transmission name="p1_transmission">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="p1_joint">
+    <joint name="platform_joint_2">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="p1_motor">
@@ -185,7 +185,7 @@
   <joint name="imu_joint" type="fixed">
     <axis xyz="1 0 0"/>
     <!-- 0 1 0 -->
-    <origin rpy="1.57079632679 0 1.57079632679" xyz="0.0525 0 -0.16"/>
+    <origin rpy="1.57079632679 0 1.57079632679" xyz="0.0525 0.15 0.15"/>
     <parent link="platform_top_link"/>
     <child link="imu_link"/>
   </joint>
@@ -201,7 +201,7 @@
         <updateRateHZ>1000.0</updateRateHZ>
         <gaussianNoise>0.0</gaussianNoise>
         <xyzOffset>0 0 0</xyzOffset>
-        <rpyOffset>0 0 1.0472</rpyOffset>
+        <rpyOffset>0 0 1.05</rpyOffset>
         <frameName>imu_link</frameName>
       </plugin>
       <pose>0 0 0 0 0 0</pose>
@@ -214,7 +214,7 @@
   <joint name="world_platform_joint" type="fixed">
     <parent link="world"/>
     <child link="p0_link"/>
-    <origin rpy="1.57079632679 0 1.57079632679" xyz="-0.0 -0.0 0.0"/>
+    <origin rpy="1.57079632679 0 2.62079632679" xyz="-0.0 -0.0 0.0"/>
   </joint>
   <link name="wam_origin"/>
   <link name="wam_link_footprint"/>

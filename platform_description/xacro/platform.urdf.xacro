@@ -59,9 +59,9 @@
     <selfCollide>true</selfCollide>
   </gazebo>
 
- <!-- p0_joint -->
+ <!-- platform_joint_1 -->
 
-  <joint name="p0_joint" type="revolute" >
+  <joint name="platform_joint_1" type="revolute" >
     <parent link="p0_link" />
     <origin xyz="0 ${platform_z+p0_height} 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
     <child link="p1_link" />
@@ -73,7 +73,7 @@
 
   <transmission name="p0_transmission">
      <type>transmission_interface/SimpleTransmission</type>
-           <joint name="p0_joint">
+           <joint name="platform_joint_1">
                 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
            </joint>
            <actuator name="p0_motor">
@@ -117,9 +117,9 @@
       <selfCollide>true</selfCollide>
     </gazebo>
 
-   <!-- p1_joint -->
+   <!-- platform_joint_2 -->
 
-   <joint name="p1_joint" type="revolute" >
+   <joint name="platform_joint_2" type="revolute" >
       <parent link="p1_link" />
       <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
       <child link="segment_top" />
@@ -174,7 +174,7 @@
 
   <transmission name="p1_transmission">
      <type>transmission_interface/SimpleTransmission</type>
-           <joint name="p1_joint">
+           <joint name="platform_joint_2">
                 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
            </joint>
            <actuator name="p1_motor">
@@ -213,7 +213,8 @@
   <!-- IMU joint -->
   <joint name="imu_joint" type="fixed">
     <axis xyz="1 0 0"/> <!-- 0 1 0 -->
-    <origin rpy="${M_PI/2} 0 ${M_PI/2}" xyz="${platform_top_thickness+0.0025} 0 ${wam_z-0.02}"/>
+    <origin rpy="${M_PI/2} 0 ${M_PI/2}" 
+    xyz="${platform_top_thickness+0.0025} ${platform_radius/2} ${platform_radius/2}"/>
     <parent link="platform_top_link"/>
     <child link="imu_link"/>
   </joint>
@@ -230,7 +231,7 @@
         <updateRateHZ>1000.0</updateRateHZ>
         <gaussianNoise>0.0</gaussianNoise>
         <xyzOffset>0 0 0</xyzOffset>
-        <rpyOffset>0 0 1.0472</rpyOffset>
+        <rpyOffset>0 0 1.05</rpyOffset>
         <frameName>imu_link</frameName>
       </plugin>
       <pose>0 0 0 0 0 0</pose>

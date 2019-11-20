@@ -9,7 +9,7 @@
   <xacro:property name="platform_y" value="0.0" />
   <xacro:property name="platform_z" value="0.0" />
   <xacro:property name="p0_height" value="0.05" />
-  <xacro:property name="p0_radius" value="0.1" />
+  <xacro:property name="p0_radius" value="0.3" />
 
   <xacro:property name="platform_top_thickness" value="0.05"/>
 

@@ -21,15 +21,15 @@ node [shape=box];
 "wam_tool_plate" [label="wam_tool_plate"];
 "wam_link_footprint" [label="wam_link_footprint"];
 node [shape=ellipse, color=blue, fontcolor=blue];
-"world" -> "world_platform_joint" [label="xyz: -0 -0 0 \nrpy: 1.5708 -5.55112e-17 1.5708"]
+"world" -> "world_platform_joint" [label="xyz: -0 -0 0 \nrpy: 1.5708 -0 2.6208"]
 "world_platform_joint" -> "p0_link"
-"p0_link" -> "p0_joint" [label="xyz: 0 0.05 0 \nrpy: 1.5708 -5.55112e-17 1.5708"]
-"p0_joint" -> "p1_link"
-"p1_link" -> "p1_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
-"p1_joint" -> "segment_top"
+"p0_link" -> "platform_joint_1" [label="xyz: 0 0.05 0 \nrpy: 1.5708 -5.55112e-17 1.5708"]
+"platform_joint_1" -> "p1_link"
+"p1_link" -> "platform_joint_2" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"platform_joint_2" -> "segment_top"
 "segment_top" -> "top_joint" [label="xyz: 0.4 0 0 \nrpy: 0 -0 0"]
 "top_joint" -> "platform_top_link"
-"platform_top_link" -> "imu_joint" [label="xyz: 0.0525 0 -0.16 \nrpy: 1.5708 -5.55112e-17 1.5708"]
+"platform_top_link" -> "imu_joint" [label="xyz: 0.0525 0.15 0.15 \nrpy: 1.5708 -5.55112e-17 1.5708"]
 "imu_joint" -> "imu_link"
 "platform_top_link" -> "platform_wam_joint" [label="xyz: 0.05 -0.22 -0.14 \nrpy: 1.5708 -5.55112e-17 1.5708"]
 "platform_wam_joint" -> "wam_origin"
