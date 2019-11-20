@@ -7,24 +7,24 @@
   <link name="p0_link">
     <inertial>
       <mass value="500.0" />
-      <origin xyz="0 ${platform_height/4} 0" rpy="${M_PI/2} ${M_PI/2} 0" />
+      <origin xyz="0 ${p0_height/2} 0" rpy="${M_PI/2} ${M_PI/2} 0" />
       <inertia ixx="3.2010" ixy="0"  ixz="0"
                iyy="3.2010" iyz="0"
                izz="0.1" />
     </inertial> 
     <visual>
-      <origin xyz="0 ${platform_height/4} 0" rpy="${M_PI/2} ${M_PI/2} 0" />
+      <origin xyz="0 ${p0_height/2} 0" rpy="${M_PI/2} ${M_PI/2} 0" />
       <geometry>
-        <cylinder radius="${leg_radius}" length="${platform_height/2}" />
+        <cylinder radius="${p0_radius}" length="${p0_height}" />
       </geometry>
       <material name="Black">
 		<color rgba="0 0 0 1.0"/>
       </material>
     </visual> 
     <collision>
-        <origin xyz="0 ${platform_height/4} 0" rpy="${M_PI/2} ${M_PI/2} 0" />
+        <origin xyz="0 ${p0_height/2} 0" rpy="${M_PI/2} ${M_PI/2} 0" />
       <geometry>
-        <cylinder radius="${leg_radius}" length="${platform_height/2}" />
+        <cylinder radius="${p0_radius}" length="${p0_height}" />
       </geometry>
     </collision>  
   </link>
@@ -63,7 +63,7 @@
 
   <joint name="p0_joint" type="revolute" >
     <parent link="p0_link" />
-    <origin xyz="0 ${platform_z+platform_height/2} 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
+    <origin xyz="0 ${platform_z+p0_height} 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
     <child link="p1_link" />
     <limit effort="100000.0" lower="-2.0" upper="2.0" velocity="1.5" />
     <axis xyz="0 1 0"/>
@@ -81,6 +81,51 @@
                 <mechanicalReduction>1.0</mechanicalReduction>
            </actuator>
   </transmission>
+
+  <!-- segment_top -->
+  <link name="segment_top">
+      <inertial>
+          <mass value="500.0" />
+          <origin xyz="${platform_height/2} 0 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
+          <inertia ixx="3.2010" ixy="0"  ixz="0"
+                   iyy="3.2010" iyz="0"
+                   izz="0.1" />
+        </inertial> 
+        <visual>
+            <origin xyz="${platform_height/2} 0 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
+          <geometry>
+            <cylinder radius="${leg_radius}" length="${platform_height}" />
+          </geometry>
+          <material name="Black">
+        <color rgba="0 0 0 1.0"/>
+          </material>
+        </visual> 
+        <collision>
+            <origin xyz="${platform_height/2} 0 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
+          <geometry>
+            <cylinder radius="${leg_radius}" length="${platform_height}" />
+          </geometry>
+        </collision>  
+  </link>
+
+  <gazebo reference="segment_top">
+      <material>Gazebo/Green</material>
+      <mu1>1000.0</mu1>
+      <mu2>1000.0</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+      <selfCollide>true</selfCollide>
+    </gazebo>
+
+   <!-- p1_joint -->
+
+   <joint name="p1_joint" type="revolute" >
+      <parent link="p1_link" />
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      <child link="segment_top" />
+      <limit effort="100000.0" lower="-2.0" upper="2.0" velocity="1.5" />
+      <axis xyz="0 0 1"/>
+    </joint>
 
  <!-- platform top -->
   <link name="platform_top_link">
@@ -107,6 +152,7 @@
       </geometry>
     </collision>
   </link>
+
   <gazebo reference="platform_top_link">
     <material>Gazebo/Red</material>
     <mu1>50.0</mu1>
@@ -116,14 +162,12 @@
     <selfCollide>true</selfCollide>
   </gazebo>
 
- <!-- p1_joint -->
+ <!-- top_joint -->
 
-  <joint name="p1_joint" type="revolute" >
-    <parent link="p1_link" />
-    <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+  <joint name="top_joint" type="fixed" >
+    <parent link="segment_top" />
+    <origin xyz="${platform_height} 0 0" rpy="0 0 0" />
     <child link="platform_top_link" />
-    <limit effort="100000.0" lower="-2.0" upper="2.0" velocity="1.5" />
-    <axis xyz="0 0 1"/>
   </joint>
 
  <!-- p1_transmission -->
