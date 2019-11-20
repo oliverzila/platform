@@ -3,17 +3,24 @@
 <robot name="platform" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
   <!-- P0 -->
+  <link name="platform_origin" />
+
+  <joint name="platform_ground" type="fixed">
+      <parent link="platform_origin"/>
+      <child link="p0_link" />
+      <origin xyz="0 ${p0_height/2} 0" rpy="0 0 0" />
+    </joint>
 
   <link name="p0_link">
     <inertial>
       <mass value="500.0" />
-      <origin xyz="0 ${p0_height/2} 0" rpy="${M_PI/2} ${M_PI/2} 0" />
+      <origin xyz="0 0 0" rpy="${M_PI/2} ${M_PI/2} 0" />
       <inertia ixx="3.2010" ixy="0"  ixz="0"
                iyy="3.2010" iyz="0"
                izz="0.1" />
     </inertial> 
     <visual>
-      <origin xyz="0 ${p0_height/2} 0" rpy="${M_PI/2} ${M_PI/2} 0" />
+      <origin xyz="0 0 0" rpy="${M_PI/2} ${M_PI/2} 0" />
       <geometry>
         <cylinder radius="${p0_radius}" length="${p0_height}" />
       </geometry>
@@ -22,7 +29,7 @@
       </material>
     </visual> 
     <collision>
-        <origin xyz="0 ${p0_height/2} 0" rpy="${M_PI/2} ${M_PI/2} 0" />
+        <origin xyz="0 0 0" rpy="${M_PI/2} ${M_PI/2} 0" />
       <geometry>
         <cylinder radius="${p0_radius}" length="${p0_height}" />
       </geometry>
@@ -63,7 +70,7 @@
 
   <joint name="platform_joint_1" type="revolute" >
     <parent link="p0_link" />
-    <origin xyz="0 ${platform_z+p0_height} 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
+    <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
     <child link="p1_link" />
     <limit effort="100000.0" lower="-2.0" upper="2.0" velocity="1.5" />
     <axis xyz="0 1 0"/>
@@ -86,13 +93,13 @@
   <link name="segment_top">
       <inertial>
           <mass value="500.0" />
-          <origin xyz="${platform_height/2} 0 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
+          <origin xyz="${platform_height/2+p0_height/2} 0 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
           <inertia ixx="3.2010" ixy="0"  ixz="0"
                    iyy="3.2010" iyz="0"
                    izz="0.1" />
         </inertial> 
         <visual>
-            <origin xyz="${platform_height/2} 0 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
+            <origin xyz="${platform_height/2+p0_height/2} 0 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
           <geometry>
             <cylinder radius="${leg_radius}" length="${platform_height}" />
           </geometry>
@@ -101,7 +108,7 @@
           </material>
         </visual> 
         <collision>
-            <origin xyz="${platform_height/2} 0 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
+            <origin xyz="${platform_height/2+p0_height/2} 0 0" rpy="${M_PI/2} 0 ${M_PI/2}" />
           <geometry>
             <cylinder radius="${leg_radius}" length="${platform_height}" />
           </geometry>

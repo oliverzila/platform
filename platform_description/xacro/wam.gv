@@ -1,6 +1,7 @@
 digraph G {
 node [shape=box];
 "world" [label="world"];
+"platform_origin" [label="platform_origin"];
 "p0_link" [label="p0_link"];
 "p1_link" [label="p1_link"];
 "segment_top" [label="segment_top"];
@@ -22,8 +23,10 @@ node [shape=box];
 "wam_link_footprint" [label="wam_link_footprint"];
 node [shape=ellipse, color=blue, fontcolor=blue];
 "world" -> "world_platform_joint" [label="xyz: -0 -0 0 \nrpy: 1.5708 -0 2.6208"]
-"world_platform_joint" -> "p0_link"
-"p0_link" -> "platform_joint_1" [label="xyz: 0 0.05 0 \nrpy: 1.5708 -5.55112e-17 1.5708"]
+"world_platform_joint" -> "platform_origin"
+"platform_origin" -> "platform_ground" [label="xyz: 0 0.025 0 \nrpy: 0 -0 0"]
+"platform_ground" -> "p0_link"
+"p0_link" -> "platform_joint_1" [label="xyz: 0 0 0 \nrpy: 1.5708 -5.55112e-17 1.5708"]
 "platform_joint_1" -> "p1_link"
 "p1_link" -> "platform_joint_2" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
 "platform_joint_2" -> "segment_top"

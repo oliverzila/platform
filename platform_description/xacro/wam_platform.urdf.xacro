@@ -8,7 +8,7 @@
 
 	<joint name="world_platform_joint" type="fixed">
 		<parent link="world"/>
-		<child link="p0_link" />
+		<child link="platform_origin" />
 		<origin xyz="${-platform_x} ${-platform_y} ${platform_z}" rpy="${M_PI/2} 0 ${M_PI/2+1.05}" />
 	</joint>
 
