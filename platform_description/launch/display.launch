@@ -1,7 +1,7 @@
 <launch>
         <arg name="use_gui" default="true"/>
         <arg name="robot" default="wam"/>
-        <param name="robot_description" command="$(find xacro)/xacro '$(find platform_description)/xacro/urdf/$(arg robot)_platform.urdf'" />
+        <param name="robot_description" command="$(find xacro)/xacro '$(find platform_description)/xacro/$(arg robot)_platform.urdf.xacro'" />
 	<node pkg="tf2_ros" type="static_transform_publisher" name="platform_origin_publisher" args="0 0 0 0 0 0 1 map world" />
 	<node pkg="tf2_ros" type="static_transform_publisher" name="enu_publisher" args="0 0 0 0 0 -0.501213 0.8653239 world enu" />
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" args="_use_gui:=$(arg use_gui)" />

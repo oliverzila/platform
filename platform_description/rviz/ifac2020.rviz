@@ -4,7 +4,7 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /TF1/Frames1/enu1
+        - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 731
   - Class: rviz/Selection
@@ -70,6 +70,10 @@ Visualization Manager:
           Show Trail: false
           Value: true
         p1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        platform_origin:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -172,6 +176,8 @@ Visualization Manager:
           Value: false
         p1_link:
           Value: false
+        platform_origin:
+          Value: false
         platform_top_link:
           Value: false
         segment_top:
@@ -216,28 +222,29 @@ Visualization Manager:
           world:
             enu:
               {}
-            p0_link:
-              p1_link:
-                segment_top:
-                  platform_top_link:
-                    imu_link:
-                      {}
-                    wam_origin:
-                      wam_link_base:
-                        wam_link_0:
-                          wam_link_1:
-                            wam_link_2:
-                              wam_link_3_virtual:
-                                wam_link_3:
-                                  wam_link_4_virtual:
-                                    wam_link_4:
-                                      wam_link_5:
-                                        wam_link_6:
-                                          wam_link_7:
-                                            wam_tool_plate:
-                                              {}
-                      wam_link_footprint:
+            platform_origin:
+              p0_link:
+                p1_link:
+                  segment_top:
+                    platform_top_link:
+                      imu_link:
                         {}
+                      wam_origin:
+                        wam_link_base:
+                          wam_link_0:
+                            wam_link_1:
+                              wam_link_2:
+                                wam_link_3_virtual:
+                                  wam_link_3:
+                                    wam_link_4_virtual:
+                                      wam_link_4:
+                                        wam_link_5:
+                                          wam_link_6:
+                                            wam_link_7:
+                                              wam_tool_plate:
+                                                {}
+                        wam_link_footprint:
+                          {}
       Update Interval: 0
       Value: true
     - Class: rviz/Axes
@@ -285,7 +292,7 @@ Visualization Manager:
     - Class: rviz/Axes
       Enabled: true
       Length: 0.20000000298023224
-      Name: too_plate
+      Name: tool_plate
       Radius: 0.009999999776482582
       Reference Frame: wam_tool_plate
       Value: true
